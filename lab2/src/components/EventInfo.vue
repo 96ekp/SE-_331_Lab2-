@@ -1,24 +1,15 @@
 <template>
   <div class="event-info">
-    <div class="category">{{ event.category }}</div>
-    <div class="organizer">{{ event.organizer }}</div>
+    <span class="category">{{ event.category }}</span>
+    <span class="organizer">{{ event.organizer }}</span>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const props = defineProps({
-  event: {
-    type: Object,
-    required: true
-  }
-})
-</script>
 
 <style scoped>
 .event-info {
   text-align: right;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .category,
@@ -26,3 +17,14 @@ const props = defineProps({
   font-size: 16px;
 }
 </style>
+
+<script>
+export default {
+  props: {
+    event: {
+      type: Object,
+      required: true
+    }
+  }
+}
+</script>
