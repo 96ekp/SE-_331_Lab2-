@@ -25,12 +25,11 @@ import { ref } from 'vue'
 // Import Axios
 // import axios from 'axios'
 
-// import the EventService instend of axios
+// Import EventService
 import EventService from '@/services/EventService'
 
 const events: Ref<EventItem[]> = ref([])
-// axios.get<EventItem[]>('http://localhost:3004/events').then((response) => {
-// events.value = response.data
+// Fetch events data when the component is created
 EventService.getEvent().then((response) => {
   events.value = response.data
 })

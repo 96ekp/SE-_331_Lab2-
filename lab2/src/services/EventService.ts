@@ -15,4 +15,3 @@ export default {
     return apiClient.get<EventItem[]>('/events')
   }
 }
-
