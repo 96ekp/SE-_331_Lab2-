@@ -1,3 +1,5 @@
+// creat studdents card to display student name, surname and gpa
+
 <template>
   <div class="student-card">
     <h3>{{ student.name }} {{ student.surname }}</h3>
