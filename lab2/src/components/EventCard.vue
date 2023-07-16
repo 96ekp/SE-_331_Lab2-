@@ -10,6 +10,18 @@
 
 <!-- typescript -->
 <script setup lang="ts">
+import type { EventItem } from '@/type'
+import type { PropType } from 'vue'
+// import { defineProps } from 'vue';
+
+const props = defineProps({
+  event: {
+    type: Object as PropType<EventItem>,
+    required: true
+  }
+})
+
+/*
 import { ref } from 'vue'
 import { type EventItem } from '@/type'
 const event = ref<EventItem>({
@@ -23,6 +35,7 @@ const event = ref<EventItem>({
   petsAllowed: true,
   organizer: 'Kat Laydee'
 })
+*/
 </script>
 
 <!-- CSS or styles -->
