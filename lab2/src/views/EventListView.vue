@@ -29,7 +29,9 @@ import { ref } from 'vue'
 import EventService from '@/services/EventService'
 
 const events: Ref<EventItem[]> = ref([])
-axios.get<EventItem[]>('http://localhost:3004/events').then((response) => {
+// axios.get<EventItem[]>('http://localhost:3004/events').then((response) => {
+// events.value = response.data
+EventService.getEvent().then((response) => {
   events.value = response.data
 })
 </script>
