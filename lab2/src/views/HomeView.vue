@@ -1,13 +1,7 @@
-<!-- <template>
-  <main class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
-  </main>
-</template> -->
-
 <template>
   <main class="events">
     <EventInfo v-for="event in events" :key="event.id" :event="event" />
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+    <!-- <EventCard v-for="event in events" :key="event.id" :event="event" /> -->
   </main>
 </template>
 
