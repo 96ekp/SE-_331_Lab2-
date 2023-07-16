@@ -1,6 +1,11 @@
 <!--  HTML or template -->
 <template>
-  <div class="event-class"></div>
+  <div class="event-class">
+    <div class="event-card">
+      <span>{{ event.time }} on {{ event.date }}</span>
+      <h4>{{ event.title }}</h4>
+    </div>
+  </div>
 </template>
 
 <!-- typescript -->
