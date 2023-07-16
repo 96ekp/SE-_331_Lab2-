@@ -1,5 +1,12 @@
+<!-- <template>
+  <main class="events">
+    <EventCard v-for="event in events" :key="event.id" :event="event" />
+  </main>
+</template> -->
+
 <template>
   <main class="events">
+    <EventInfo v-for="event in events" :key="event.id" :event="event" />
     <EventCard v-for="event in events" :key="event.id" :event="event" />
   </main>
 </template>
@@ -13,7 +20,9 @@
 </style>
 
 <script setup lang="ts">
-import EventCard from '../components/EventCard.vue'
+// import EventCard from '../components/EventCard.vue'
+import EventInfo from '../components/EventInfo.vue'
+
 import type { EventItem } from '@/type'
 import { ref } from 'vue'
 
