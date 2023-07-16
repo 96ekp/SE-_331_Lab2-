@@ -23,7 +23,10 @@ import type { EventItem } from '@/type'
 import { ref } from 'vue'
 
 // Import Axios
-import axios from 'axios'
+// import axios from 'axios'
+
+// import the EventService instend of axios
+import EventService from '@/services/EventService'
 
 const events: Ref<EventItem[]> = ref([])
 axios.get<EventItem[]>('http://localhost:3004/events').then((response) => {
