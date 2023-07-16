@@ -26,4 +26,7 @@ import { ref } from 'vue'
 import axios from 'axios'
 
 const events: Ref<EventItem[]> = ref([])
+axios.get<EventItem[]>('http://localhost:3004/events').then((response) => {
+  events.value = response.data
+})
 </script>
