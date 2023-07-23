@@ -1,3 +1,5 @@
+// default
+
 {
   "posts": [
     {
@@ -14,6 +16,12 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "id": 1,
+    "category": "Sample Category",
+    "title": "Sample Event",
+    "date": "2023-07-23",
+    "time": "15:00",
+    "petsAllowed": true,
+    "organizer": "John Doe"
   }
 }
