@@ -8,7 +8,7 @@ const apiClient: AxiosInstance = axios.create({
     Accept: 'application/json',
     'Content-Type': 'application/json'
   }
-})
+});
 
 export default {
   getEvent(): Promise<AxiosResponse<EventItem[]>> {
