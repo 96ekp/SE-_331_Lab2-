@@ -1,27 +1,21 @@
-// default
-
 {
-  "posts": [
+  "events": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "category": "Sample Category",
+      "title": "Sample Event",
+      "date": "2023-07-23",
+      "time": "15:00",
+      "petsAllowed": true,
+      "organizer": "John Doe"
     }
   ],
-  "comments": [
+  "students": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "John",
+      "surname": "Doe",
+      "gpa": 3.8
     }
-  ],
-  "profile": {
-    "id": 1,
-    "category": "Sample Category",
-    "title": "Sample Event",
-    "date": "2023-07-23",
-    "time": "15:00",
-    "petsAllowed": true,
-    "organizer": "John Doe"
-  }
+  ]
 }
