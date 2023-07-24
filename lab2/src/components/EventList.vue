@@ -1,12 +1,13 @@
 <template>
-  <div class="event-info">
+  <div class="event-list">
     <div class="category">{{ event.category }}</div>
+
     <div class="organizer">{{ event.organizer }}</div>
   </div>
 </template>
 
 <style scoped>
-.event-info {
+.event-list {
   text-align: right;
   display: flex;
   justify-content: space-between;
