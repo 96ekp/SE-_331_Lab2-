@@ -2,13 +2,13 @@
   <div>
     <h1>Categories and Organizers</h1>
     <div class="category-list">
-      <EventList v-for="event in events" :key="event.id" :event="event" />
+      <EventInfo v-for="event in events" :key="event.id" :event="event" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import EventList from '../components/EventList'
+import EventInfo from '../components/EventInfo'
 import type { EventItem } from '@/type'
 import { ref } from 'vue'
 

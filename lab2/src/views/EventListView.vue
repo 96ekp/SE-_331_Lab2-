@@ -2,7 +2,7 @@
   <h1>Events For Good</h1>
 
   <main class="events">
-    <EventList v-for="event in events" :key="event.id" :event="event" />
+    <EventInfo v-for="event in events" :key="event.id" :event="event" />
     <!-- <EventCard v-for="event in events" :key="event.id" :event="event" /> -->
   </main>
 </template>
@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 // import EventCard from '../components/EventCard.vue'
-import EventList from '../components/EventList.vue'
+import EventInfo from '../components/EventInfo.vue'
 
 import type { EventItem } from '@/type'
 import { ref } from 'vue'
