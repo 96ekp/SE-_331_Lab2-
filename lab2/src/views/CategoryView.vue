@@ -51,6 +51,7 @@ const events = ref<EventItem[]>([
 .category-list {
   display: flex;
   flex-direction: column;
+  -ms-flex-item-align: center;
   align-items: center;
 }
 

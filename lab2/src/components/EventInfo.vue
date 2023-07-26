@@ -1,14 +1,12 @@
 <template>
   <div class="event-list">
     <div class="category">{{ event.category }}</div>
-
     <div class="organizer">{{ event.organizer }}</div>
   </div>
 </template>
 
 <style scoped>
 .event-list {
-  text-align: right;
   display: flex;
   justify-content: space-between;
   font-size: 16px;
@@ -17,21 +15,13 @@
 
 .category,
 .organizer {
-  font-size: 16px;
+  font-size: 20px;
+  margin-right: 20px;
 }
-/* .title-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+
+.category {
+  flex: 1;
 }
-.title {
-  font-weight: bold;
-}
-.content-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-} */
 </style>
 
 <script>
