@@ -8,7 +8,8 @@
 </template>
 
 <script setup lang="ts">
-import EventInfo from '../components/EventInfo'
+import EventInfo from '../components/EventInfo.vue'
+
 import type { EventItem } from '@/type'
 import { ref } from 'vue'
 
