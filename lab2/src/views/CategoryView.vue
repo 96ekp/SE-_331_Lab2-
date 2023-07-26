@@ -57,4 +57,12 @@ const events = ref<EventItem[]>([
 h1 {
   margin-bottom: 20px;
 }
+.category,
+.organizer {
+  text-align: center; /* Center text within each element */
+}
+
+.category {
+  margin-bottom: 5px; /* Add space between category and organizer */
+}
 </style>
