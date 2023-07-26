@@ -13,6 +13,6 @@ const apiClient: AxiosInstance = axios.create({
 
 export default {
   getEvent(eventId: number): Promise<AxiosResponse<EventItem>> {
-    return apiClient.get < EventItem > `/events/${eventId}`
+    return apiClient.get<EventItem>`/events/${eventId}`
   }
 }
