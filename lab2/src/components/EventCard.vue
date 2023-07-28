@@ -39,6 +39,5 @@ const props = defineProps({
 .event-link {
   color: #2c3e50;
   text-decoration: none;
-  background-color: blue;
 }
 </style>

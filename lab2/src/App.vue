@@ -4,6 +4,10 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <header>
     <nav>
+      <!-- <RouterLink to="/">Home</RouterLink> | 
+      <RouterLink to="/about">About</RouterLink>|
+      <RouterLink to="/categories">Categories</RouterLink>|
+      <router-link to="/students">Students</router-link> -->
       <RouterLink :to="{ name: 'home' }">Home</RouterLink> |
       <RouterLink :to="{ name: 'about' }">About</RouterLink> |
       <RouterLink :to="{ name: 'categories' }">Categories</RouterLink> |
