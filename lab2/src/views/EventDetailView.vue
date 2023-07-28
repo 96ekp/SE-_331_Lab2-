@@ -11,4 +11,14 @@ import { ref } from 'vue'
 import type { Ref } from 'vue'
 import type { EventItem } from '@/type'
 const event: Ref<EventItem | null> = ref(null)
+
+onMounted(async () => {
+  const eventId = parseInt($route.params.eventId)
+  try {
+    const response = await EventService.getEventById(eventId)
+    event.value = response.data
+  } catch (error) {
+    console.error(error)
+  }
+})
 </script>

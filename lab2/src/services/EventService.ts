@@ -32,18 +32,11 @@ const apiClient: AxiosInstance = axios.create({
     'Content-Type': 'application/json'
   }
 })
-/**
- * @typedef {import('axios').AxiosResponse} AxiosResponse
- * @typedef {import('@/type').EventItem} EventItem
- */
-/**
- * Get an event by ID.
- * @param {number} eventId - The ID of the event to retrieve.
- * @returns {Promise<AxiosResponse<EventItem>>} A promise that resolves with the event data.
- */
-
 export default {
-  getEvent(eventId: number): Promise<AxiosResponse<EventItem>> {
-    return apiClient.get<EventItem>`/events/${eventId}`
+  getEvent(): Promise<AxiosResponse<EventItem[]>> {
+    return apiClient.get<EventItem[]>('/events')
+  },
+  getEventById(id: number): Promise<AxiosResponse<EventItem>> {
+    return apiClient.get<EventItem>('events/' + id.toString())
   }
 }
