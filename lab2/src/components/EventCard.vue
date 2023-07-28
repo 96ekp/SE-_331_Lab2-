@@ -1,6 +1,6 @@
 <!--  HTML or template -->
 <template>
-  <RouterLink :to="{ name: 'event-detail', params: { id: event?.id } }">
+  <RouterLink class="event-link" :to="{ name: 'event-detail', params: { id: event?.id } }">
     <div class="event-class">
       <div class="event-card">
         <span>@{{ event?.time }} on {{ event?.date }}</span> +
@@ -14,7 +14,6 @@
 <script setup lang="ts">
 import type { EventItem } from '@/type'
 import type { PropType } from 'vue'
-// import { defineProps } from 'vue';
 
 const props = defineProps({
   event: {
@@ -36,5 +35,9 @@ const props = defineProps({
 .event-class:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0, 2);
+}
+.event-link {
+  color: #2c3e50;
+  text-decoration: none;
 }
 </style>
