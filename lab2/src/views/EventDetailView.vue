@@ -7,27 +7,26 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, defineProps, onMounted } from 'vue'
 import type { Ref } from 'vue'
 import type { EventItem } from '@/type'
 import EventService from '@/services/EventService'
-const event: Ref<EventItem | null> = ref(null)
-const id: Ref<number> = ref(123)
-EventService.getEventById(id.value)
-  .then((response) => {
-    event.value = response.data
-  })
-  .catch((error) => {
-    console.log(error)
-  })
 
-// onMounted(async () => {
-//   const eventId = parseInt($route.params.eventId)
-//   try {
-//     const response = await EventService.getEventById(eventId)
-//     event.value = response.data
-//   } catch (error) {
-//     console.error(error)
-//   }
-// })
+const event: Ref<EventItem | null> = ref(null)
+const props = defineProps({
+  id: String
+})
+
+onMounted(() => {
+  // Access the "id" prop passed from the router and convert it to a number
+  const eventId = Number(props.id)
+
+  EventService.getEventById(eventId)
+    .then((response) => {
+      event.value = response.data
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+})
 </script>
