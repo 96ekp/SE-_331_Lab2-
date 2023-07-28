@@ -28,7 +28,11 @@ const router = createRouter({
       component: CategoryView
     },
     { path: '/students', name: 'StudentList', component: StudentView },
-    { path: '/events/:eventId', name: 'EventDetail', component: EventDetailView }
+    {
+      path: '/event/123',
+      name: 'event-detail',
+      component: EventDetailView
+    }
   ]
 })
 
