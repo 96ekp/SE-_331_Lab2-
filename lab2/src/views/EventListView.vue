@@ -45,6 +45,7 @@ const events = VueRef<EventItem[]>([])
 //   events.value = response.data
 // })
 
+const totalEvent = ref<number>(0)
 const props = defineProps({
   page: {
     type: Number,
