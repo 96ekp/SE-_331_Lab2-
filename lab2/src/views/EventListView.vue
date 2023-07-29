@@ -3,7 +3,16 @@
 
   <main class="events">
     <EventList v-for="event in events" :key="event.id" :event="event" />
-    <!-- <EventCard v-for="event in events" :key="event.id" :event="event" /> -->
+    <RouterLink :to="{ name: 'event-list', query: { page: page - 1 } }" rel="prev" v-if="page != 1">
+      Prev Page
+    </RouterLink>
+    <RouterLink
+      :to="{ name: 'event-list', query: { page: page + 1 } }"
+      rel="next"
+      v-if="events.length >= 2"
+    >
+      Next Page
+    </RouterLink>
   </main>
 </template>
 
