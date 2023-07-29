@@ -2,6 +2,7 @@
   <div>
     <h1>Event List</h1>
     <main class="events">
+      <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
       <!-- Pagination -->
       <div class="pagination">
         <RouterLink
