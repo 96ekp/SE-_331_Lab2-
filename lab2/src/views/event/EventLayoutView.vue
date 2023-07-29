@@ -17,6 +17,7 @@ import { ref } from 'vue'
 import { type EventItem } from '@/type'
 import EventService from '@/services/EventService'
 import { useRouter } from 'vue-router'
+import NetworkErrorView from '@/views/NetworkErrorView.vue' // Add this import statement
 
 const event = ref<EventItem | null>(null)
 
@@ -29,6 +30,7 @@ EventService.getEventById(Number(props.id))
     event.value = response.data
   })
   .catch((error) => {
+    console.log(error)
     if (error.response && error.response.status === 404) {
       router.push({ name: '404-resource', params: { resource: 'event' } })
     } else {
