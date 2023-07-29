@@ -1,18 +1,3 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import { ref } from 'vue';
-
-// Reactive variable to store the page size
-const pageSize = ref(2);
-
-// Function to update the page size
-const updatePageSize = () => {
-  // Fetch the selected page size from the dropdown and update the reactive variable
-  // You can also fetch the page size from any other source (e.g., query parameter)
-  const selectedPageSize = parseInt(pageSize.value);
-  pageSize.value = selectedPageSize;
-};
-</script>
 <template>
   <div id="app">
     <header>
@@ -28,9 +13,8 @@ const updatePageSize = () => {
       </nav>
     </header>
     <RouterView />
-  </div>
-  <!-- Page size selection -->
-  <div class="page-size-selection">
+    <!-- Page size selection -->
+    <div class="page-size-selection">
       <label for="pageSize">Page Size:</label>
       <select v-model="pageSize" @change="updatePageSize">
         <option value="2">2</option>
@@ -83,3 +67,18 @@ label {
   margin-right: 5px;
 }
 </style>
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+import { ref } from 'vue'
+
+// Reactive variable to store the page size
+const pageSize = ref(2)
+
+// Function to update the page size
+const updatePageSize = () => {
+  // Fetch the selected page size from the dropdown and update the reactive variable
+  // You can also fetch the page size from any other source (e.g., query parameter)
+  const selectedPageSize = parseInt(pageSize.value)
+  pageSize.value = selectedPageSize
+}
+</script>

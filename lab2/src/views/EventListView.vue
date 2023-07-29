@@ -99,6 +99,10 @@
   background-color: #42b983;
   color: #fff;
 }
+.page-size RouterLink.active {
+  background-color: #42b983;
+  color: #fff;
+}
 </style>
 
 <script setup lang="ts">
