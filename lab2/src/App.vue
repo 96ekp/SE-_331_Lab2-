@@ -1,5 +1,17 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { ref } from 'vue';
+
+// Reactive variable to store the page size
+const pageSize = ref(2);
+
+// Function to update the page size
+const updatePageSize = () => {
+  // Fetch the selected page size from the dropdown and update the reactive variable
+  // You can also fetch the page size from any other source (e.g., query parameter)
+  const selectedPageSize = parseInt(pageSize.value);
+  pageSize.value = selectedPageSize;
+};
 </script>
 <template>
   <div id="app">
@@ -16,6 +28,19 @@ import { RouterLink, RouterView } from 'vue-router'
       </nav>
     </header>
     <RouterView />
+  </div>
+  <!-- Page size selection -->
+  <div class="page-size-selection">
+      <label for="pageSize">Page Size:</label>
+      <select v-model="pageSize" @change="updatePageSize">
+        <option value="2">2</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+
+    <!-- Render the EventListView component with the selected page size -->
+    <EventListView :pageSize="pageSize" />
   </div>
 </template>
 <style>
@@ -46,5 +71,15 @@ header {
 }
 h4 {
   font-size: 20px;
+}
+/* Add your styles here */
+.page-size-selection {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+label {
+  margin-right: 5px;
 }
 </style>

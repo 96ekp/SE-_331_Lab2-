@@ -123,21 +123,19 @@ const props = defineProps({
     type: Number,
     required: true
   },
-
-pageSize{
-type: Number,
-defaultValue:2 // default page size is set to 2
-}
-
+  pageSize: {
+    type: Number,
+    default: 2 // default page size is set to 2
+  }
 })
 
 // Fetch events data when the component is created
 watchEffect(() => {
   EventService.getEvent(props.pageSize, props.page).then((response: AxiosResponse<EventItem[]>) => {
-    events.value = response.data;
-    totalEvent.value = parseInt(response.headers['x-total-count']); // Store the total number of events
-  });
-});
+    events.value = response.data
+    totalEvent.value = parseInt(response.headers['x-total-count']) // Store the total number of events
+  })
+})
 const hasNextPage = computed(() => {
   // first calculat the toatl page
   const totalPages = Math.ceil(totalEvent.value / 2)
