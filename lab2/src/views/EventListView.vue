@@ -24,6 +24,32 @@
         </RouterLink>
       </div>
       <!-- End of Pagination -->
+
+      <!-- Page Size Links -->
+      <div class="page-size">
+        <!-- Page size 2 link -->
+        <RouterLink
+          :to="{ name: 'event-list', query: { page: 1, size: 2 } }"
+          :class="{ active: pageSize === 2 }"
+        >
+          2
+        </RouterLink>
+        <!-- Page size 5 link -->
+        <RouterLink
+          :to="{ name: 'event-list', query: { page: 1, size: 5 } }"
+          :class="{ active: pageSize === 5 }"
+        >
+          5
+        </RouterLink>
+        <!-- Page size 10 link -->
+        <RouterLink
+          :to="{ name: 'event-list', query: { page: 1, size: 10 } }"
+          :class="{ active: pageSize === 10 }"
+        >
+          10
+        </RouterLink>
+      </div>
+      <!-- End of Page Size Links -->
     </main>
   </div>
 </template>
