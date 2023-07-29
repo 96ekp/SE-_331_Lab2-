@@ -27,12 +27,33 @@
 
       <!-- Page Size Links -->
       <div class="page-size">
+        <!-- Page size 1 link -->
+        <RouterLink
+          :to="{ name: 'event-list', query: { page: 1, size: 1 } }"
+          :class="{ active: pageSize === 1 }"
+        >
+          1
+        </RouterLink>
         <!-- Page size 2 link -->
         <RouterLink
           :to="{ name: 'event-list', query: { page: 1, size: 2 } }"
           :class="{ active: pageSize === 2 }"
         >
           2
+        </RouterLink>
+        <!-- Page size 3 link -->
+        <RouterLink
+          :to="{ name: 'event-list', query: { page: 1, size: 3 } }"
+          :class="{ active: pageSize === 3 }"
+        >
+          3
+        </RouterLink>
+        <!-- Page size 4 link -->
+        <RouterLink
+          :to="{ name: 'event-list', query: { page: 1, size: 4 } }"
+          :class="{ active: pageSize === 4 }"
+        >
+          4
         </RouterLink>
         <!-- Page size 5 link -->
         <RouterLink
@@ -116,11 +137,6 @@ import EventService from '@/services/EventService'
 import { ref as VueRef, defineProps, watchEffect, computed } from 'vue'
 
 const events = VueRef<EventItem[]>([])
-// Fetch events data when the component is created
-// EventService.getEvent().then((response) => {
-//   events.value = response.data
-// })
-
 const totalEvent = ref<number>(0)
 const props = defineProps({
   page: {

@@ -17,7 +17,10 @@
     <div class="page-size-selection">
       <label for="pageSize">Page Size:</label>
       <select v-model="pageSize" @change="updatePageSize">
+        <option value="1">1</option>
         <option value="2">2</option>
+        <option value="5">3</option>
+        <option value="5">4</option>
         <option value="5">5</option>
         <option value="10">10</option>
       </select>
