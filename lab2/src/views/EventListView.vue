@@ -56,6 +56,7 @@ const props = defineProps({
 watchEffect(() => {
   EventService.getEvent(2, props.page).then((response) => {
     events.value = response.data
+    totalEvent.value = parseInt(response.headers['x-total-count'] || '0')
   })
 })
 </script>
