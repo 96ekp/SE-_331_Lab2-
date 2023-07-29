@@ -6,15 +6,16 @@
       <RouterLink to="/categories">Categories</RouterLink>|
       <router-link to="/students">Students</router-link> -->
 
-        <RouterLink :to="{ name: 'home' }">Home</RouterLink> |
+        <RouterLink :to="{ name: 'event-list' }">Home</RouterLink> |
         <RouterLink :to="{ name: 'about' }">About</RouterLink> |
         <RouterLink :to="{ name: 'categories' }">Categories</RouterLink> |
         <RouterLink :to="{ name: 'students' }">Students</RouterLink>
       </nav>
     </header>
-    <RouterView />
+    <!-- <RouterView /> -->
     <!-- Page size selection -->
     <div class="page-size-selection">
+      <!-- Label and dropdown for selecting page size -->
       <label for="pageSize">Page Size:</label>
       <select v-model="pageSize" @change="updatePageSize">
         <option value="1">1</option>
@@ -27,7 +28,9 @@
     </div>
 
     <!-- Render the EventListView component with the selected page size -->
-    <EventListView :pageSize="pageSize" />
+    <!-- <EventListView :pageSize="pageSize" /> -->
+    <router-view :pageSize="pageSize" />
+    <!-- The EventListView component will be rendered inside the router-view element, and the page size selection dropdown will appear on top of it. -->
   </div>
 </template>
 <style>

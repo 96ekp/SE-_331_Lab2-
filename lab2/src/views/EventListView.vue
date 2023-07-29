@@ -5,70 +5,70 @@
       <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
       <!-- Pagination -->
       <div class="pagination">
-        <RouterLink
+        <router-link
           :to="{ name: 'event-list', query: { page: page - 1 } }"
           rel="prev"
           v-if="page !== 1"
           id="page-prev"
         >
           Prev Page
-        </RouterLink>
+        </router-link>
 
-        <RouterLink
+        <router-link
           :to="{ name: 'event-list', query: { page: page + 1 } }"
           rel="next"
           v-if="hasNextPage"
           id="page-next"
         >
           Next Page
-        </RouterLink>
+        </router-link>
       </div>
       <!-- End of Pagination -->
 
       <!-- Page Size Links -->
       <div class="page-size">
         <!-- Page size 1 link -->
-        <RouterLink
+        <router-link
           :to="{ name: 'event-list', query: { page: 1, size: 1 } }"
           :class="{ active: pageSize === 1 }"
         >
           1
-        </RouterLink>
+        </router-link>
         <!-- Page size 2 link -->
-        <RouterLink
+        <router-link
           :to="{ name: 'event-list', query: { page: 1, size: 2 } }"
           :class="{ active: pageSize === 2 }"
         >
           2
-        </RouterLink>
+        </router-link>
         <!-- Page size 3 link -->
-        <RouterLink
+        <router-link
           :to="{ name: 'event-list', query: { page: 1, size: 3 } }"
           :class="{ active: pageSize === 3 }"
         >
           3
-        </RouterLink>
+        </router-link>
         <!-- Page size 4 link -->
-        <RouterLink
+        <router-link
           :to="{ name: 'event-list', query: { page: 1, size: 4 } }"
           :class="{ active: pageSize === 4 }"
         >
           4
-        </RouterLink>
+        </router-link>
         <!-- Page size 5 link -->
-        <RouterLink
+        <router-link
           :to="{ name: 'event-list', query: { page: 1, size: 5 } }"
           :class="{ active: pageSize === 5 }"
         >
           5
-        </RouterLink>
+        </router-link>
         <!-- Page size 10 link -->
-        <RouterLink
+        <router-link
           :to="{ name: 'event-list', query: { page: 1, size: 10 } }"
           :class="{ active: pageSize === 10 }"
         >
           10
-        </RouterLink>
+        </router-link>
       </div>
       <!-- End of Page Size Links -->
     </main>
@@ -107,7 +107,7 @@
   margin-top: 8px;
 }
 
-.page-size RouterLink {
+.page-size router-link {
   display: inline-block;
   margin-right: 8px;
   padding: 4px 8px;
@@ -116,11 +116,11 @@
   color: #2c3e50;
 }
 
-.page-size RouterLink.active {
+.page-size router-link.active {
   background-color: #42b983;
   color: #fff;
 }
-.page-size RouterLink.active {
+.page-size router-link.active {
   background-color: #42b983;
   color: #fff;
 }
