@@ -10,10 +10,11 @@
       >
         Prev Page
       </RouterLink>
+      <!-- Added: Next Page link -->
       <RouterLink
         :to="{ name: 'event-list', query: { page: page + 1 } }"
         rel="next"
-        v-if="events.length >= 2"
+        v-if="hasNextPage"
       >
         Next Page
       </RouterLink>
@@ -58,5 +59,10 @@ watchEffect(() => {
     events.value = response.data
     totalEvent.value = parseInt(response.headers['x-total-count'] || '0')
   })
+})
+const hasNextPage = computed(() => {
+  // first calculat the toatl page
+  const totalPages = Math.ceil(totalEvent.value / 2)
+  return props.page < totalPages
 })
 </script>
