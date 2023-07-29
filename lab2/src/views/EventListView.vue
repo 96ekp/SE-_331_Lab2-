@@ -38,7 +38,7 @@ import { ref } from 'vue'
 // Import EventService
 import EventService from '@/services/EventService'
 
-import { ref as VueRef, defineProps, watchEffect } from 'vue'
+import { ref as VueRef, defineProps, watchEffect, computed } from 'vue'
 
 const events = VueRef<EventItem[]>([])
 // Fetch events data when the component is created
