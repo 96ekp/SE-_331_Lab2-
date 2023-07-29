@@ -22,15 +22,21 @@ import EventList from '../components/EventList.vue'
 import type { EventItem } from '@/type'
 import { ref } from 'vue'
 
-// Import Axios
-// import axios from 'axios'
-
 // Import EventService
 import EventService from '@/services/EventService'
 
 const events: Ref<EventItem[]> = ref([])
 // Fetch events data when the component is created
-EventService.getEvent().then((response) => {
+// EventService.getEvent().then((response) => {
+//   events.value = response.data
+// })
+const props = defineProps({
+  page: {
+    type: Number,
+    required: true
+  }
+})
+EventService.getEvent(2, props.page).then((response: AxiosResponse<EventItem[]>) => {
   events.value = response.data
 })
 </script>
