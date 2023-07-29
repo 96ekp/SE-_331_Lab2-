@@ -30,6 +30,6 @@ EventService.getEventById(Number(props.id))
       <router-link :to="{ name: 'event-edit', params: { id } }">Edit</router-link>
     </div>
 
-    <p>Edit the event here</p>
+    <p>Registration from here</p>
   </div>
 </template>
