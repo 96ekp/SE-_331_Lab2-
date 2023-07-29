@@ -80,6 +80,25 @@
 #page-next {
   text-align: right;
 }
+/* Add styles for page size links */
+.page-size {
+  display: flex;
+  margin-top: 8px;
+}
+
+.page-size RouterLink {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+.page-size RouterLink.active {
+  background-color: #42b983;
+  color: #fff;
+}
 </style>
 
 <script setup lang="ts">
@@ -103,15 +122,22 @@ const props = defineProps({
   page: {
     type: Number,
     required: true
-  }
+  },
+
+pageSize{
+type: Number,
+defaultValue:2 // default page size is set to 2
+}
+
 })
 
+// Fetch events data when the component is created
 watchEffect(() => {
-  EventService.getEvent(2, props.page).then((response) => {
-    events.value = response.data
-    totalEvent.value = parseInt(response.headers['x-total-count'] || '0')
-  })
-})
+  EventService.getEvent(props.pageSize, props.page).then((response: AxiosResponse<EventItem[]>) => {
+    events.value = response.data;
+    totalEvent.value = parseInt(response.headers['x-total-count']); // Store the total number of events
+  });
+});
 const hasNextPage = computed(() => {
   // first calculat the toatl page
   const totalPages = Math.ceil(totalEvent.value / 2)
