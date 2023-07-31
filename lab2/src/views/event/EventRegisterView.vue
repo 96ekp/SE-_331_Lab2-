@@ -4,6 +4,7 @@
 import { type EventItem } from '@/type'
 import type { PropType } from 'vue'
 import { useRouter } from 'vue-router'
+import { useMassageStore } from '@/stores/message'
 const props = defineProps({
   event: {
     type: Object as PropType<EventItem>,
@@ -11,12 +12,17 @@ const props = defineProps({
   }
 })
 const router = useRouter()
+const store = useMassageStore()
 
 function register() {
+  store.updateMessage('You are successfully registered for ' + event.value?.title)
+  setTimeout(() => {
+    store.resetMessage()
+  }, 3000)
   router.push({
-    name: 'event-detail',
+    name: 'eventDetail',
     params: {
-      id: props.event?.id
+      id: props.event.id
     }
   })
 }
