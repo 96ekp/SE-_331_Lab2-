@@ -1,10 +1,8 @@
-<!-- views/event/EventDetailView.vue -->
-
 <script setup lang="ts">
 import { type EventItem } from '@/type'
 import type { PropType } from 'vue'
 import { useRouter } from 'vue-router'
-import { useMassageStore } from '@/stores/message'
+import { useMessageStore } from '@/stores/message'
 const props = defineProps({
   event: {
     type: Object as PropType<EventItem>,
@@ -12,7 +10,7 @@ const props = defineProps({
   }
 })
 const router = useRouter()
-const store = useMassageStore()
+const store = useMessageStore()
 
 function register() {
   store.updateMessage('You are successfully registered for ' + event.value?.title)
@@ -29,6 +27,13 @@ function register() {
 </script>
 
 <template>
-  <p>Registration from here</p>
-  <button @click="register">Register Me</button>
+  <div v-if="event" class="p-3 mt-2">
+    <p class="font-bold text-gray-600">Event Registration</p>
+    <button
+      @click="register"
+      class="bg-green-300 border border-green-800 rounded-full font-bold text-white p-2 mt-2 hover:bg-green-700"
+    >
+      Register ME
+    </button>
+  </div>
 </template>

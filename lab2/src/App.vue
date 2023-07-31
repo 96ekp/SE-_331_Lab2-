@@ -91,7 +91,7 @@ label {
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
-import { useMessageStore } from '@/stores/message'
+import { useMessageStore } from '/src/stores/message'
 import { storeToRefs } from 'pinia'
 
 const store = useMessageStore()
