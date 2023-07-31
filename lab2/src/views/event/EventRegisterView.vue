@@ -24,4 +24,5 @@ function register() {
 
 <template>
   <p>Registration from here</p>
+  <button @click="register">Register Me</button>
 </template>
