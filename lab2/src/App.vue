@@ -91,10 +91,10 @@ label {
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
-import { useMassageStore } from '@/stores/message'
+import { useMessageStore } from '@/stores/message'
 import { storeToRefs } from 'pinia'
 
-const store = useMassageStore()
+const store = useMessageStore()
 const { message } = storeToRefs(store)
 
 // Reactive variable to store the page size
