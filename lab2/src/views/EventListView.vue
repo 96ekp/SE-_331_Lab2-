@@ -82,8 +82,6 @@ import type { EventItem } from '@/type'
 import { ref } from 'vue'
 import { onBeforeRouteUpdate } from 'vue-router'
 import EventService from '@/services/EventService'
-
-import NProgress from 'nprogress'
 import { useRouter } from 'vue-router'
 
 import { ref as VueRef, defineProps, watchEffect, computed } from 'vue'
@@ -102,7 +100,6 @@ const props = defineProps({
   }
 })
 
-NProgress.start()
 EventService.getEvent(2, props.page)
   .then((response: AxiosResponse<EventItem[]>) => {
     events.value = response.data
@@ -111,12 +108,9 @@ EventService.getEvent(2, props.page)
   .catch(() => {
     router.push({ name: 'NetworkError' })
   })
-  .finally(() => {
-    NProgress.done()
-  })
+
 onBeforeRouteUpdate((to, from, next) => {
   const toPage = Number(to.query.page)
-  NProgress.start()
   EventService.getEvent(2, toPage)
     .then((response: AxiosResponse<EventItem[]>) => {
       events.value = response.data
@@ -125,9 +119,6 @@ onBeforeRouteUpdate((to, from, next) => {
     })
     .catch(() => {
       next({ name: 'NetworkError' })
-    })
-    .finally(() => {
-      NProgress.done()
     })
 })
 
