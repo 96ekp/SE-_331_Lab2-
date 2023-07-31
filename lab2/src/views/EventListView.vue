@@ -134,9 +134,13 @@ import { ref } from 'vue'
 // Import EventService
 import EventService from '@/services/EventService'
 
+import NProgress from 'nprogress'
+import { useRouter } from 'vue-router'
+
 import { ref as VueRef, defineProps, watchEffect, computed } from 'vue'
 
 const events = VueRef<EventItem[]>([])
+const router = useRouter()
 const totalEvent = ref<number>(0)
 const props = defineProps({
   page: {
@@ -150,12 +154,25 @@ const props = defineProps({
 })
 
 // Fetch events data when the component is created
-watchEffect(() => {
-  EventService.getEvent(props.pageSize, props.page).then((response: AxiosResponse<EventItem[]>) => {
+// watchEffect(() => {
+//   EventService.getEvent(props.pageSize, props.page).then((response: AxiosResponse<EventItem[]>) => {
+//     events.value = response.data
+//     totalEvent.value = parseInt(response.headers['x-total-count']) // Store the total number of events
+//   })
+// })
+NProgress.start()
+EventService.getEvent(2, props.page)
+  .then((response: AxiosResponse<EventItem[]>) => {
     events.value = response.data
-    totalEvent.value = parseInt(response.headers['x-total-count']) // Store the total number of events
+    totalEvent.value = response.headers['x-total-count']
   })
-})
+  .catch(() => {
+    router.push({ name: 'NetworkError' })
+  })
+  .finally(() => {
+    NProgress.done()
+  })
+
 const hasNextPage = computed(() => {
   // first calculat the toatl page
   const totalPages = Math.ceil(totalEvent.value / 2)
