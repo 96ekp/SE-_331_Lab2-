@@ -18,7 +18,7 @@
     <!-- <RouterView /> -->
     <!-- Page size selection -->
     <div class="page-size-selection">
-      <!-- Label and dropdown for selecting page size -->
+      <!-- Label and dropdown for selecting  -->
       <label for="pageSize">Page Size:</label>
       <select v-model="pageSize" @change="updatePageSize">
         <option value="1">1</option>

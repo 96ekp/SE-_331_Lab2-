@@ -96,11 +96,11 @@ const props = defineProps({
   },
   pageSize: {
     type: Number,
-    default: 2 // default page size is set to 2
+    default: 3 // default page size is set to 3
   }
 })
 
-EventService.getEvent(2, props.page)
+EventService.getEvent(3, props.page)
   .then((response: AxiosResponse<EventItem[]>) => {
     events.value = response.data
     totalEvent.value = response.headers['x-total-count']
@@ -111,7 +111,7 @@ EventService.getEvent(2, props.page)
 
 onBeforeRouteUpdate((to, from, next) => {
   const toPage = Number(to.query.page)
-  EventService.getEvent(2, toPage)
+  EventService.getEvent(3, toPage)
     .then((response: AxiosResponse<EventItem[]>) => {
       events.value = response.data
       totalEvent.value = response.headers['x-total-count']
@@ -124,7 +124,7 @@ onBeforeRouteUpdate((to, from, next) => {
 
 const hasNextPage = computed(() => {
   // first calculat the toatl page
-  const totalPages = Math.ceil(totalEvent.value / 2)
+  const totalPages = Math.ceil(totalEvent.value / 3)
   return props.page < totalPages
 })
 </script>
