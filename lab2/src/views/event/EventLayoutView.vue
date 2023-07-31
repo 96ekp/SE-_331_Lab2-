@@ -14,27 +14,16 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { type EventItem } from '@/type'
+import type { EventItem } from '@/type'
 import EventService from '@/services/EventService'
 import { useRouter } from 'vue-router'
-import NetworkErrorView from '@/views/NetworkErrorView.vue' // Add this import statement
+import { useEventStore } from '@/stores/event'
+import { storeToRefs } from 'pinia'
 
-const event = ref<EventItem | null>(null)
-
-const props = defineProps({
-  id: String
-})
 const router = useRouter()
-EventService.getEventById(Number(props.id))
-  .then((response) => {
-    event.value = response.data
-  })
-  .catch((error) => {
-    console.log(error)
-    if (error.response && error.response.status === 404) {
-      router.push({ name: '404-resource', params: { resource: 'event' } })
-    } else {
-      router.push({ name: 'network-error' })
-    }
-  })
+
+const store = useEventStore()
+const event = storeToRefs(store).event
+
+const id = event.value?.id
 </script>
