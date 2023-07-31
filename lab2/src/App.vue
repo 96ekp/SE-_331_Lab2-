@@ -75,6 +75,18 @@ h4 {
 label {
   margin-right: 5px;
 }
+@keyframes yellowFade {
+  from {
+    background: yellow;
+  }
+  to {
+    background: transparent;
+  }
+}
+
+#flashMessage {
+  animation: yellowFade 3s ease-in-out;
+}
 </style>
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
