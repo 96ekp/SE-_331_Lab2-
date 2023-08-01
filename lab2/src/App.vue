@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header>
+    <header class="max-h-screen leading-normal">
       <div id="flashMessage" v-if="message" class="animate-yellowfade">
         <h4 class="text-lg">{{ message }}</h4>
       </div>
@@ -51,10 +51,6 @@ nav a {
 }
 nav a.router-link-exact-active {
   color: #42b983;
-}
-header {
-  line-height: 1.5;
-  max-height: 100vh;
 }
 .logo {
   display: block;
