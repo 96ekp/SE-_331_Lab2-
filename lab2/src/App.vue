@@ -23,10 +23,8 @@
       <select v-model="pageSize" @change="updatePageSize">
         <option value="1">1</option>
         <option value="2">2</option>
-        <option value="5">3</option>
-        <option value="5">4</option>
+        <option value="3">3</option>
         <option value="5">5</option>
-        <option value="10">10</option>
       </select>
     </div>
 
@@ -99,7 +97,7 @@ const store = useMessageStore()
 const { message } = storeToRefs(store)
 
 // Reactive variable to store the page size
-const pageSize = ref(2)
+const pageSize = ref(3)
 
 // Function to update the page size
 const updatePageSize = () => {
