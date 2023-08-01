@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <header>
-      <div id="flashMessage" v-if="message">
-        <h4>{{ message }}</h4>
+      <div id="flashMessage" v-if="message" class="animate-yellowfade">
+        <h4 class="text-lg">{{ message }}</h4>
       </div>
       <nav>
         <!-- <RouterLink to="/">Home</RouterLink> | <RouterLink to="/about">About</RouterLink>|
@@ -75,14 +75,27 @@ h4 {
 label {
   margin-right: 5px;
 }
+@keyframes yellowfade {
+  from {
+    background: yellow;
+  }
+
+  to {
+    background: transparent;
+  }
+}
+
+.animate-yellowfade {
+  animation: yellowfade 3s ease-in-out;
+}
 </style>
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
-import { useMassageStore } from '@/stores/message'
+import { useMessageStore } from '@/stores/message'
 import { storeToRefs } from 'pinia'
 
-const store = useMassageStore()
+const store = useMessageStore()
 const { message } = storeToRefs(store)
 
 // Reactive variable to store the page size

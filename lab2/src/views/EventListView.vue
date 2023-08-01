@@ -133,6 +133,7 @@ import type { EventItem } from '@/type'
 import { ref } from 'vue'
 // Import EventService
 import EventService from '@/services/EventService'
+import NProgress from 'nprogress'
 
 import { ref as VueRef, defineProps, watchEffect, computed } from 'vue'
 
