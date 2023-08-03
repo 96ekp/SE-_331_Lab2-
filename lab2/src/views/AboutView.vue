@@ -1,16 +1,7 @@
 <template>
-  <div class="about">
+  <div class="lg:min-h-screen lg:flex lg:items-center">
     <h1>This is an about page</h1>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-</style>
+<style></style>

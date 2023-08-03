@@ -4,15 +4,30 @@
       <div id="flashMessage" v-if="message" class="animate-yellowfade">
         <h4 class="text-lg">{{ message }}</h4>
       </div>
-      <nav>
+      <nav class="p-8">
         <!-- <RouterLink to="/">Home</RouterLink> | <RouterLink to="/about">About</RouterLink>|
       <RouterLink to="/categories">Categories</RouterLink>|
       <router-link to="/students">Students</router-link> -->
 
-        <RouterLink :to="{ name: 'event-list' }">Home</RouterLink> |
-        <RouterLink :to="{ name: 'about' }">About</RouterLink> |
-        <RouterLink :to="{ name: 'categories' }">Categories</RouterLink> |
-        <RouterLink :to="{ name: 'students' }">Students</RouterLink>
+        <RouterLink
+          :to="{ name: 'event-list' }"
+          class="font-bold text-gray-700 hover:text-green-500"
+          >Home</RouterLink
+        >
+        |
+        <RouterLink :to="{ name: 'about' }" class="font-bold text-gray-700 hover:text-green-500"
+          >About</RouterLink
+        >
+        |
+        <RouterLink
+          :to="{ name: 'categories' }"
+          class="font-bold text-gray-700 hover:text-green-500"
+          >Categories</RouterLink
+        >
+        |
+        <RouterLink :to="{ name: 'students' }" class="font-bold text-gray-700 hover:text-green-500"
+          >Students</RouterLink
+        >
       </nav>
     </header>
     <!-- <RouterView /> -->
@@ -41,23 +56,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-nav {
-  padding: 30px;
-}
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-h4 {
-  font-size: 20px;
 }
 /* Add your styles here */
 .page-size-selection {

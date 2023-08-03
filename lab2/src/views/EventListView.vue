@@ -1,14 +1,15 @@
 <template>
   <div>
-    <h1>Event List</h1>
+    <h1>Event For Good</h1>
     <main class="flex flex-col items-center">
       <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
-      <!-- Pagination -->
-      <div class="pagination">
+      <!-- Pagination change to Tailwind CSS  -->
+      <div class="flex w-72 justify-between">
         <router-link
           :to="{ name: 'event-list', query: { page: page - 1 } }"
           rel="prev"
           v-if="page !== 1"
+          class="text-left text-gray-700 no-underline"
           id="page-prev"
         >
           Prev Page
@@ -18,9 +19,10 @@
           :to="{ name: 'event-list', query: { page: page + 1 } }"
           rel="next"
           v-if="hasNextPage"
+          class="text-right text-gray-700 no-underline"
           id="page-next"
         >
-          Next Page
+          > Next Page
         </router-link>
       </div>
       <!-- End of Pagination -->
@@ -59,12 +61,6 @@
 </template>
 
 <style scoped>
-.events {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 /* New CSS for pagination */
 .pagination {
   display: flex;
