@@ -1,34 +1,47 @@
 <template>
   <div id="app">
-    <header>
-      <div id="flashMessage" v-if="message">
-        <h4>{{ message }}</h4>
+    <header class="max-h-screen leading-normal">
+      <div id="flashMessage" v-if="message" class="animate-yellowfade">
+        <h4 class="text-lg">{{ message }}</h4>
       </div>
-      <nav>
+      <nav class="p-8">
         <!-- <RouterLink to="/">Home</RouterLink> | <RouterLink to="/about">About</RouterLink>|
       <RouterLink to="/categories">Categories</RouterLink>|
       <router-link to="/students">Students</router-link> -->
 
-        <RouterLink :to="{ name: 'event-list' }">Home</RouterLink> |
-        <RouterLink :to="{ name: 'about' }">About</RouterLink> |
-        <RouterLink :to="{ name: 'categories' }">Categories</RouterLink> |
-        <RouterLink :to="{ name: 'students' }">Students</RouterLink>
+        <RouterLink
+          :to="{ name: 'event-list' }"
+          class="font-bold text-gray-700 hover:text-green-500"
+          >Home</RouterLink
+        >
+        |
+        <RouterLink :to="{ name: 'about' }" class="font-bold text-gray-700 hover:text-green-500"
+          >About</RouterLink
+        >
+        |
+        <RouterLink
+          :to="{ name: 'categories' }"
+          class="font-bold text-gray-700 hover:text-green-500"
+          >Categories</RouterLink
+        >
+        |
+        <RouterLink :to="{ name: 'students' }" class="font-bold text-gray-700 hover:text-green-500"
+          >Students</RouterLink
+        >
       </nav>
     </header>
     <!-- <RouterView /> -->
     <!-- Page size selection -->
-    <div class="page-size-selection">
-      <!-- Label and dropdown for selecting  -->
-      <label for="pageSize">Page Size:</label>
+    <!-- <div class="page-size-selection"> -->
+    <!-- Label and dropdown for selecting page size -->
+    <!-- <label for="pageSize">Page Size:</label>
       <select v-model="pageSize" @change="updatePageSize">
         <option value="1">1</option>
         <option value="2">2</option>
-        <option value="5">3</option>
-        <option value="5">4</option>
+        <option value="3">3</option>
         <option value="5">5</option>
-        <option value="10">10</option>
       </select>
-    </div>
+    </div> -->
 
     <!-- Render the EventListView component with the selected page size -->
     <!-- <EventListView :pageSize="pageSize" /> -->
@@ -44,27 +57,6 @@
   text-align: center;
   color: #2c3e50;
 }
-nav {
-  padding: 30px;
-}
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-h4 {
-  font-size: 20px;
-}
 /* Add your styles here */
 .page-size-selection {
   display: flex;
@@ -75,30 +67,31 @@ h4 {
 label {
   margin-right: 5px;
 }
-@keyframes yellowFade {
+@keyframes yellowfade {
   from {
     background: yellow;
   }
+
   to {
     background: transparent;
   }
 }
 
-#flashMessage {
-  animation: yellowFade 3s ease-in-out;
+.animate-yellowfade {
+  animation: yellowfade 3s ease-in-out;
 }
 </style>
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
-import { useMessageStore } from '/src/stores/message'
+import { useMessageStore } from '@/stores/message'
 import { storeToRefs } from 'pinia'
 
 const store = useMessageStore()
 const { message } = storeToRefs(store)
 
 // Reactive variable to store the page size
-const pageSize = ref(2)
+const pageSize = ref(3)
 
 // Function to update the page size
 const updatePageSize = () => {
