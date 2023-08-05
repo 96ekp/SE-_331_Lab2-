@@ -26,51 +26,6 @@
       <!-- End of Pagination -->
 
       <!-- Page Size Links -->
-      <div class="page-size">
-        <!-- Page size 1 link -->
-        <router-link
-          :to="{ name: 'event-list', query: { page: 1, size: 1 } }"
-          :class="{ active: pageSize === 1 }"
-        >
-          1
-        </router-link>
-        <!-- Page size 2 link -->
-        <router-link
-          :to="{ name: 'event-list', query: { page: 1, size: 2 } }"
-          :class="{ active: pageSize === 2 }"
-        >
-          2
-        </router-link>
-        <!-- Page size 3 link -->
-        <router-link
-          :to="{ name: 'event-list', query: { page: 1, size: 3 } }"
-          :class="{ active: pageSize === 3 }"
-        >
-          3
-        </router-link>
-        <!-- Page size 4 link -->
-        <router-link
-          :to="{ name: 'event-list', query: { page: 1, size: 4 } }"
-          :class="{ active: pageSize === 4 }"
-        >
-          4
-        </router-link>
-        <!-- Page size 5 link -->
-        <router-link
-          :to="{ name: 'event-list', query: { page: 1, size: 5 } }"
-          :class="{ active: pageSize === 5 }"
-        >
-          5
-        </router-link>
-        <!-- Page size 10 link -->
-        <router-link
-          :to="{ name: 'event-list', query: { page: 1, size: 10 } }"
-          :class="{ active: pageSize === 10 }"
-        >
-          10
-        </router-link>
-      </div>
-      <!-- End of Page Size Links -->
     </main>
   </div>
 </template>
