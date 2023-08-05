@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <header class="max-h-screen leading-normal">
+      <h1 class="text-3xl font-bold">Saw Eh Kalane Phaung</h1>
       <div id="flashMessage" v-if="message" class="animate-yellowfade">
         <h4 class="text-lg">{{ message }}</h4>
       </div>
