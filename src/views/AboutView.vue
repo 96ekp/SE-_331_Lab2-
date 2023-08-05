@@ -4,4 +4,20 @@
   </div>
 </template>
 
-<style></style>
+<style>
+/* Center the about page content on large screens */
+@media (min-width: 1136) {
+  .lg:flex {
+    display: flex;
+  }
+  .lg:items-center {
+    align-items: center;
+  }
+  .lg:justify-center {
+    justify-content: center;
+  }
+}
+h1 {
+  text-align: center;
+}
+</style>
