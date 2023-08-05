@@ -4,7 +4,7 @@ import type { AxiosInstance, AxiosResponse } from 'axios'
 import type { EventItem } from '@/type'
 
 const apiClient: AxiosInstance = axios.create({
-  baseURL: process.env.VUE_APP_BACKEND_URL,
+  baseURL: import.meta.env.VITE_BACKEND_URL,
   withCredentials: false,
   headers: {
     Accept: 'application/json',
