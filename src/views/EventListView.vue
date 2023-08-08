@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Event For Good</h1>
+    <h1 class="text-center font-bold font-mono text-black">Events for Good</h1>
     <main class="flex flex-col items-center">
       <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
       <!-- Pagination change to Tailwind CSS  -->
@@ -29,6 +29,43 @@
     </main>
   </div>
 </template>
+
+<script setup lang="ts">
+import EventCard from '../components/EventCard.vue'
+import type { EventItem } from '@/type'
+import { ref } from 'vue'
+// Import EventService
+import EventService from '@/services/EventService'
+import NProgress from 'nprogress'
+
+import { ref as VueRef, defineProps, watchEffect, computed } from 'vue'
+
+const events = VueRef<EventItem[]>([])
+const totalEvent = ref<number>(0)
+const props = defineProps({
+  page: {
+    type: Number,
+    required: true
+  },
+  pageSize: {
+    type: Number,
+    default: 3 // default page size is set to 3
+  }
+})
+
+// Fetch events data when the component is created
+watchEffect(() => {
+  EventService.getEvent(props.pageSize, props.page).then((response: AxiosResponse<EventItem[]>) => {
+    events.value = response.data
+    totalEvent.value = parseInt(response.headers['x-total-count']) // Store the total number of events
+  })
+})
+const hasNextPage = computed(() => {
+  // first calculat the toatl page
+  const totalPages = Math.ceil(totalEvent.value / 3)
+  return props.page < totalPages
+})
+</script>
 
 <style scoped>
 /* New CSS for pagination */
@@ -74,41 +111,3 @@
   color: #fff;
 }
 </style>
-
-<script setup lang="ts">
-import EventCard from '../components/EventCard.vue'
-import EventList from '../components/EventList.vue'
-import type { EventItem } from '@/type'
-import { ref } from 'vue'
-// Import EventService
-import EventService from '@/services/EventService'
-import NProgress from 'nprogress'
-
-import { ref as VueRef, defineProps, watchEffect, computed } from 'vue'
-
-const events = VueRef<EventItem[]>([])
-const totalEvent = ref<number>(0)
-const props = defineProps({
-  page: {
-    type: Number,
-    required: true
-  },
-  pageSize: {
-    type: Number,
-    default: 3 // default page size is set to 3
-  }
-})
-
-// Fetch events data when the component is created
-watchEffect(() => {
-  EventService.getEvent(props.pageSize, props.page).then((response: AxiosResponse<EventItem[]>) => {
-    events.value = response.data
-    totalEvent.value = parseInt(response.headers['x-total-count']) // Store the total number of events
-  })
-})
-const hasNextPage = computed(() => {
-  // first calculat the toatl page
-  const totalPages = Math.ceil(totalEvent.value / 3)
-  return props.page < totalPages
-})
-</script>
