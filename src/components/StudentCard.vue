@@ -7,15 +7,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    student: {
-      type: Object,
-      required: true
-    }
+<script setup lang="ts">
+import type { StudentItem } from '@/type'
+import type { PropType } from 'vue'
+const props = defineProps({
+  event: {
+    type: Object as PropType<StudentItem>,
+    required: true
   }
-}
+})
 </script>
 
 <style scoped>
