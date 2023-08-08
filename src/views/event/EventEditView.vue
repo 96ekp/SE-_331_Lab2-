@@ -34,7 +34,7 @@ function edit() {
     <p class="font-bold text-gray-600">Edit Event</p>
     <button
       @click="edit"
-      class="bg-green-300 border border-green-800 rounded-full font-bold text-white p-2 mt-2 hover:bg-green-700"
+      class="bg-black border border-none rounded-full font-bold text-white p-2 mt-2 hover:bg-sky-blue"
     >
       Update
     </button>

@@ -31,9 +31,10 @@ function register() {
     <p class="font-bold text-gray-600">Event Registration</p>
     <button
       @click="register"
-      class="bg-green-300 border border-green-800 rounded-full font-bold text-white p-2 mt-2 hover:bg-green-700"
+      class="bg-black border-none rounded-full font-bold text-white p-2 mt-2 hover:bg-sky-blue"
     >
       Register ME
     </button>
   </div>
 </template>
+<style scoped></style>

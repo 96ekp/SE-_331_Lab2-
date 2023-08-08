@@ -1,10 +1,14 @@
 <template>
   <div v-if="event">
     <h1>{{ event.title }}</h1>
-    <div id="nav">
-      <router-link :to="{ name: 'event-detail', params: { id } }">Details</router-link> |
-      <router-link :to="{ name: 'event-register', params: { id } }">Register</router-link> |
-      <router-link :to="{ name: 'event-edit', params: { id } }">Edit</router-link>
+    <div id="nav" class="space-x-2">
+      <router-link :to="{ name: 'event-detail', params: { id } }" class="nav-link"
+        >Details</router-link
+      >
+      <router-link :to="{ name: 'event-register', params: { id } }" class="nav-link"
+        >Register</router-link
+      >
+      <router-link :to="{ name: 'event-edit', params: { id } }" class="nav-link">Edit</router-link>
     </div>
 
     <!-- Content for sub-pages will be rendered here -->
@@ -27,3 +31,12 @@ const event = storeToRefs(store).event
 
 const id = event.value?.id
 </script>
+<style scoped>
+.nav-link {
+  @apply no-underline text-black;
+}
+
+.nav-link:hover {
+  @apply underline;
+}
+</style>

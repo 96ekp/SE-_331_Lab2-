@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header class="max-h-screen leading-normal">
-      <h1 class="text-3xl font-bold">Saw Eh Kalane Phaung</h1>
+      <h1 class="text-1.5xl">Create by Saw Eh Kalane Phaung</h1>
       <div id="flashMessage" v-if="message" class="animate-yellowfade">
         <h4 class="text-lg">{{ message }}</h4>
       </div>
@@ -31,7 +31,7 @@
         >
       </nav>
     </header>
-    <!-- <RouterView /> -->
+    <RouterView />
     <!-- Page size selection -->
     <!-- <div class="page-size-selection"> -->
     <!-- Label and dropdown for selecting page size -->
@@ -40,13 +40,13 @@
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
-        <option value="5">5</option>
+        <option value="5">4</option>
       </select>
     </div> -->
 
     <!-- Render the EventListView component with the selected page size -->
     <!-- <EventListView :pageSize="pageSize" /> -->
-    <router-view :pageSize="pageSize" />
+    <!-- <router-view :pageSize="pageSize" /> -->
     <!-- The EventListView component will be rendered inside the router-view element, and the page size selection dropdown will appear on top of it. -->
   </div>
 </template>
@@ -92,13 +92,13 @@ const store = useMessageStore()
 const { message } = storeToRefs(store)
 
 // Reactive variable to store the page size
-const pageSize = ref(3)
+// const pageSize = ref(3)
 
 // Function to update the page size
-const updatePageSize = () => {
-  // Fetch the selected page size from the dropdown and update the reactive variable
-  // You can also fetch the page size from any other source (e.g., query parameter)
-  const selectedPageSize = parseInt(pageSize.value)
-  pageSize.value = selectedPageSize
-}
+// const updatePageSize = () => {
+// Fetch the selected page size from the dropdown and update the reactive variable
+// You can also fetch the page size from any other source (e.g., query parameter)
+//   const selectedPageSize = parseInt(pageSize.value)
+//   pageSize.value = selectedPageSize
+// }
 </script>
