@@ -20,12 +20,12 @@
           >About</RouterLink
         >
         |
-        <RouterLink
+        <!-- <RouterLink
           :to="{ name: 'categories' }"
           class="font-bold text-gray-700 hover:text-green-500"
           >Categories</RouterLink
         >
-        |
+        | -->
         <RouterLink :to="{ name: 'students' }" class="font-bold text-gray-700 hover:text-green-500"
           >Students</RouterLink
         >
