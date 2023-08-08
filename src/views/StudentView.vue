@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts">
 import { ref, onMounted } from 'vue'
 import StudentService from '@/services/StudentService'
 import StudentCard from '@/components/StudentCard.vue'
