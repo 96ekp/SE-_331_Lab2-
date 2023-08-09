@@ -1,72 +1,81 @@
 <template>
-  <div>
-    <h1 class="text-center font-bold font-mono text-black">Events for Good</h1>
-    <main class="flex flex-col items-center">
-      <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
-      <!-- Pagination change to Tailwind CSS  -->
-      <div class="flex w-72 justify-between">
-        <router-link
-          :to="{ name: 'event-list', query: { page: page - 1 } }"
-          rel="prev"
-          v-if="page !== 1"
-          class="text-left text-gray-700 no-underline"
-          id="page-prev"
-        >
-          Prev Page
-        </router-link>
+  <br />
+  <h1 class="text-center font-bold font-mono text-black">Events for Good</h1>
+  <br />
 
-        <router-link
-          :to="{ name: 'event-list', query: { page: page + 1 } }"
-          rel="next"
-          v-if="hasNextPage"
-          class="text-right text-gray-700 no-underline"
-          id="page-next"
-        >
-          > Next Page
-        </router-link>
-      </div>
-      <!-- End of Pagination -->
-    </main>
-  </div>
+  <main class="flex flex-col items-center">
+    <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
+    <RouterLink
+      :to="{ name: 'EventList', query: { page: page - 1 } }"
+      rel="prev"
+      v-if="page != 1"
+      id="page-prev"
+      class="font-mono"
+    >
+      Prev Page
+    </RouterLink>
+    <RouterLink
+      :to="{ name: 'EventList', query: { page: page + 1 } }"
+      rel="prev"
+      v-if="hasNextPage"
+      id="page-next"
+      class="font-mono"
+    >
+      Next Page
+    </RouterLink>
+  </main>
 </template>
 
 <script setup lang="ts">
 import EventCard from '../components/EventCard.vue'
 import type { EventItem } from '@/type'
-import { ref } from 'vue'
-// Import EventService
+import { ref, type Ref, computed } from 'vue'
+import { onBeforeRouteUpdate } from 'vue-router'
 import EventService from '@/services/EventService'
-import NProgress from 'nprogress'
+import type { AxiosResponse } from 'axios'
+import router from '@/router'
 
-import { ref as VueRef, defineProps, watchEffect, computed } from 'vue'
-
-const events = VueRef<EventItem[]>([])
+const events: Ref<Array<EventItem>> = ref([])
 const totalEvent = ref<number>(0)
 const props = defineProps({
   page: {
     type: Number,
     required: true
   },
-  pageSize: {
+  size: {
     type: Number,
-    default: 3 // default page size is set to 3
+    required: true
   }
 })
 
-// Fetch events data when the component is created
-watchEffect(() => {
-  EventService.getEvent(props.pageSize, props.page).then((response: AxiosResponse<EventItem[]>) => {
+EventService.getEvent(3, props.page)
+  .then((response: AxiosResponse<EventItem[]>) => {
     events.value = response.data
-    totalEvent.value = parseInt(response.headers['x-total-count']) // Store the total number of events
+    totalEvent.value = response.headers['x-total-count']
   })
+  .catch(() => {
+    router.push({ name: 'NetworkError' })
+  })
+
+onBeforeRouteUpdate((to, from, next) => {
+  const toPage = Number(to.query.page)
+  ///????????
+  EventService.getEvent(3, toPage)
+    .then((response: AxiosResponse<EventItem[]>) => {
+      events.value = response.data
+      totalEvent.value = response.headers['x-total-count']
+      next()
+    })
+    .catch(() => {
+      next({ name: 'NetworkError' })
+    })
 })
+
 const hasNextPage = computed(() => {
-  // first calculat the toatl page
   const totalPages = Math.ceil(totalEvent.value / 3)
-  return props.page < totalPages
+  return props.page.valueOf() < totalPages
 })
 </script>
-
 <style scoped>
 /* New CSS for pagination */
 .pagination {
