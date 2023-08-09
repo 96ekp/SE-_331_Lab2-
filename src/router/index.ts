@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import EventListView from '../views/EventListView.vue'
 import AboutView from '../views/AboutView.vue'
 import CategoryView from '../views/CategoryView.vue'
-import StudentView from '../views/StudentView.vue'
+// import StudentView from '../views/StudentView.vue'
 import EventDetailView from '../views/event/EventDetailView.vue' // Correct import
 import EventEditView from '../views/event/EventEditView.vue' // Correct import
 import EventRegisterView from '../views/event/EventRegisterView.vue' // Correct import
@@ -33,7 +33,7 @@ const router = createRouter({
       name: 'categories',
       component: CategoryView
     },
-    { path: '/students', name: 'students', component: StudentView },
+    // { path: '/students', name: 'students', component: StudentView },
     {
       path: '/404/:resource',
       name: '404-resource',

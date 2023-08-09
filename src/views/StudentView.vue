@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="student-view">
     <h1>Students</h1>
     <div class="student-list">
@@ -34,4 +34,4 @@ onMounted(async () => {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
-</style>
+</style> -->
