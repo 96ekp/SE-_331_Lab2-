@@ -5,9 +5,11 @@
       <router-link :to="{ name: 'event-detail', params: { id } }" class="nav-link"
         >Details</router-link
       >
+      |
       <router-link :to="{ name: 'event-register', params: { id } }" class="nav-link"
         >Register</router-link
       >
+      |
       <router-link :to="{ name: 'event-edit', params: { id } }" class="nav-link">Edit</router-link>
     </div>
 
@@ -17,19 +19,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { EventItem } from '@/type'
-import EventService from '@/services/EventService'
-import { useRouter } from 'vue-router'
 import { useEventStore } from '@/stores/event'
 import { storeToRefs } from 'pinia'
-
-const router = useRouter()
+import { ref } from 'vue'
 
 const store = useEventStore()
 const event = storeToRefs(store).event
-
-const id = event.value?.id
+const id = ref(event?.value?.id)
 </script>
 <style scoped>
 .nav-link {

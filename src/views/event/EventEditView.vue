@@ -2,28 +2,29 @@
 
 <script setup lang="ts">
 import { type EventItem } from '@/type'
-import type { PropType } from 'vue'
-import { useMessageStore } from '@/stores/message'
+import { type PropType } from 'vue'
 import { useRouter } from 'vue-router'
+import { useMessangeStore } from '@/stores/message'
 
-const router = useRouter()
-const store = useMessageStore()
-defineProps({
+const props = defineProps({
   event: {
     type: Object as PropType<EventItem>,
     require: true
   }
 })
 
+const router = useRouter()
+const store = useMessangeStore()
+
 function edit() {
-  store.updateMessage('You are successfully updated ' + event.value?.title)
+  store.updateMessage(' You are Edit succesfully for' + props.event?.title)
   setTimeout(() => {
     store.resetMessage()
   }, 3000)
   router.push({
-    name: 'eventDetail',
+    name: 'event-detail',
     params: {
-      id: id
+      id: props.event?.id
     }
   })
 }
