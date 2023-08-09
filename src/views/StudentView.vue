@@ -1,37 +1,20 @@
-<!-- <template>
-  <div class="student-view">
-    <h1>Students</h1>
-    <div class="student-list">
-      <StudentCard v-for="student in students" :key="student.id" :student="student" />
-    </div>
-  </div>
+<template>
+  <br />
+  <h1 class="text-center font-bold font-mono text-black">Events For Good</h1>
+  <br />
+  <main class="flex flex-col items-center">
+    <StudentCard v-for="student in students" :student="student" :key="student.id"></StudentCard>
+  </main>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import StudentService from '@/services/StudentService'
+import type { StudentItem } from '@/type'
 import StudentCard from '@/components/StudentCard.vue'
+import { ref, type Ref } from 'vue'
+import StuedntService from '@/services/StudentService'
 
-const students = ref([])
-
-onMounted(async () => {
-  try {
-    const response = await StudentService.getStudents()
-    students.value = response.data
-  } catch (error) {
-    console.error(error)
-  }
+const students: Ref<Array<StudentItem>> = ref([])
+StuedntService.getEvent().then((res) => {
+  students.value = res.data
 })
 </script>
-
-<style scoped>
-.student-view {
-  margin-top: 20px;
-}
-
-.student-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-</style> -->

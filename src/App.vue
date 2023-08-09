@@ -32,22 +32,6 @@
       </nav>
     </header>
     <RouterView />
-    <!-- Page size selection -->
-    <!-- <div class="page-size-selection"> -->
-    <!-- Label and dropdown for selecting page size -->
-    <!-- <label for="pageSize">Page Size:</label>
-      <select v-model="pageSize" @change="updatePageSize">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="5">4</option>
-      </select>
-    </div> -->
-
-    <!-- Render the EventListView component with the selected page size -->
-    <!-- <EventListView :pageSize="pageSize" /> -->
-    <!-- <router-view :pageSize="pageSize" /> -->
-    <!-- The EventListView component will be rendered inside the router-view element, and the page size selection dropdown will appear on top of it. -->
   </div>
 </template>
 <style>
@@ -90,15 +74,5 @@ import { storeToRefs } from 'pinia'
 
 const store = useMessageStore()
 const { message } = storeToRefs(store)
-
-// Reactive variable to store the page size
-// const pageSize = ref(3)
-
-// Function to update the page size
-// const updatePageSize = () => {
-// Fetch the selected page size from the dropdown and update the reactive variable
-// You can also fetch the page size from any other source (e.g., query parameter)
-//   const selectedPageSize = parseInt(pageSize.value)
-//   pageSize.value = selectedPageSize
-// }
+const sizes = ref<number>(2)
 </script>
