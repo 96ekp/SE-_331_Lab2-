@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "deploy-test-331-lab06"
-  }
+    "default": "se331-test-lab",
+    "staging": "se331-test-lab"
+  },
+  "targets": {},
+  "etags": {}
 }
