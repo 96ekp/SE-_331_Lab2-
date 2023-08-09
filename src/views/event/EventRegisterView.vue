@@ -2,7 +2,7 @@
 import { type EventItem } from '@/type'
 import type { PropType } from 'vue'
 import { useRouter } from 'vue-router'
-import { useMessangeStore } from '@/stores/message'
+import { useMessageStore } from '@/stores/message'
 
 const props = defineProps({
   event: {
@@ -12,7 +12,7 @@ const props = defineProps({
 })
 
 const router = useRouter()
-const store = useMessangeStore()
+const store = useMessageStore()
 function register() {
   store.updateMessage('You are successfully registerd for' + props.event?.title)
   setTimeout(() => {
