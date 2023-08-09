@@ -1,4 +1,4 @@
-// creat studdents card to display student name, surname and gpa
+<!-- // creat studdents card to display student name, surname and gpa -->
 
 <template>
   <div class="student-card">

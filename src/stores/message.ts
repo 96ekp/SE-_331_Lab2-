@@ -5,7 +5,7 @@ export const useMessageStore = defineStore('message', {
     message: '' as string
   }),
   actions: {
-    updateMessage(message: String) {
+    updateMessage(message: string) {
       this.message = message
     },
     resetMessage() {
