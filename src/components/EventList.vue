@@ -1,15 +1,20 @@
-<!-- <template>
-  <div class="event-list">
-    <div class="category">{{ event.category }}</div>
-    <div class="organizer">{{ event.organizer }}</div>
-  </div>
-</template> -->
 <template>
   <div class="mb-3 p-2 border-2 border-solid border-gray w-60 h-30">
     <span> {{ event?.category }} </span>
     <h4 class="text-center font-semibold">{{ event?.organizer }}</h4>
   </div>
 </template>
+
+<script setup lang="ts">
+import type { EventItem } from '@/type'
+import type { PropType } from 'vue'
+const props = defineProps({
+  event: {
+    type: Object as PropType<EventItem>,
+    require: true
+  }
+})
+</script>
 <style scoped>
 .event-list {
   display: flex;
@@ -27,20 +32,7 @@
 .category {
   flex: 1;
 }
-</style>
 
-<script setup lang="ts">
-import type { EventItem } from '@/type'
-import type { PropType } from 'vue'
-const props = defineProps({
-  event: {
-    type: Object as PropType<EventItem>,
-    require: true
-  }
-})
-</script>
-
-<style scoped>
 .event-card {
   padding: 20px;
   width: 250px;
