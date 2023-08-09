@@ -1,17 +1,18 @@
-// import axios from 'axios'
+import axios from 'axios'
+import type { AxiosInstance, AxiosResponse } from 'axios'
+import type { StudentItem } from '@/type'
 
-// // get the students information given here (https://dv-student-backend-2019.appspot.com/students).
-// const apiClient = axios.create({
-//   baseURL: 'https://dv-student-backend-2019.appspot.com',
-//   withCredentials: false,
-//   headers: {
-//     Accept: 'application/json',
-//     'Content-Type': 'application/json'
-//   }
-// })
+const apiClient = (AxiosInstance = axios.create({
+  baseURL: 'https://dv-student-backend-2019.appspot.com',
+  withCredentials: false,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json'
+  }
+}))
 
-// export default {
-//   getStudents() {
-//     return apiClient.get('/students')
-//   }
-// }
+export default {
+  getEvent(): Promise<AxiosResponse<StudentItem[]>> {
+    return apiClientStudent.get<StudentItem[]>('/students')
+  }
+}
