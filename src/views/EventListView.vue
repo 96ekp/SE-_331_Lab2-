@@ -59,7 +59,6 @@ EventService.getEvent(3, props.page)
 
 onBeforeRouteUpdate((to, from, next) => {
   const toPage = Number(to.query.page)
-  ///????????
   EventService.getEvent(3, toPage)
     .then((response: AxiosResponse<EventItem[]>) => {
       events.value = response.data

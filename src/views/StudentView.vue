@@ -1,6 +1,6 @@
 <template>
   <br />
-  <h1 class="text-center font-bold font-mono text-black">Events For Good</h1>
+  <h1 class="text-center font-bold font-mono text-black">Events For Great</h1>
   <br />
   <main class="flex flex-col items-center">
     <StudentCard v-for="student in students" :student="student" :key="student.id"></StudentCard>
