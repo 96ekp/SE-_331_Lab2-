@@ -1,6 +1,6 @@
 version: '3.9'
 services:
 web:
-  image: 'saw967/se331-lab6:latest'
+  image: 'saw96/se331-lab6:latest'
   ports:
     - 8001:80
