@@ -1,7 +1,7 @@
 //
-import axios from 'axios'
-import type { AxiosInstance, AxiosResponse } from 'axios'
 import type { EventItem } from '@/type'
+import type { AxiosInstance, AxiosResponse } from 'axios'
+import axios from 'axios'
 
 const apiClient: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_URL,
